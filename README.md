@@ -6,7 +6,7 @@ google chrome/chromium in headless mode.
 # Features
 
 * Creates *.png file with screenshot of the whole page. This is most
-  accurate screenshot - it captures exactly what you see in your the browser.
+  accurate screenshot - it captures exactly what you see in your browser.
   It simulates a monitor with unlimited height -
   this way the entire page is captured.
 
