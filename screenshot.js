@@ -18,9 +18,8 @@ if (!userDir) {
 (async () => {
     const browser = await puppeteer.launch({
         executablePath: chromePath,
-        //args: ['--window-size=1600,5000'], //TODO
         userDataDir: userDir,
-        //headless: false //TODO
+        //headless: false //TODO: delete
     });
     const page = await browser.newPage();
     await page.goto(url);
@@ -32,8 +31,9 @@ if (!userDir) {
         width: 1600,
         height: await page.evaluate(() => document.body.clientHeight)
     });
-    //Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100000); //TODO
+    //Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100000); //TODO: delete
     await page.screenshot({path: outputDir + '/screenshot.png'});
+    await page.pdf({path: outputDir + '/screenshot.pdf', format: 'A2'});
 
     await browser.close();
 })();
