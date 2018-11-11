@@ -24,12 +24,12 @@ done
 
 [[ "${url}" ]] || die "url not set"
 
-
 pushd "${SCRIPTDIR}"
-    docker build -t chrome-screenshot .
-    #docker run -it -v "$(pwd):/workdir" chrome-screenshot bash
-    docker run -v "$(pwd):/workdir" chrome-screenshot node screenshot.js --url "${url}"
-    #docker run -v "$(pwd):/workdir" chrome-screenshot env
+    make dep
 
+    NODE_DIR="$(pwd)/target/node"
+    export PATH="${NODE_DIR}/bin:${PATH}"
+    export NODE_PATH="${NODE_DIR}/lib/node_modules"
 
+    node screenshot.js --url "${url}"
 popd

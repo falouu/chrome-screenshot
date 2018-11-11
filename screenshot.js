@@ -7,7 +7,7 @@ if (!url) {
 }
 
 (async () => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch(chromePath);
     const page = await browser.newPage();
     await page.goto(url);
     await page.screenshot({path: 'screenshot.png'});

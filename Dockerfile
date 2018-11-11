@@ -13,3 +13,4 @@ RUN npm install -g puppeteer-core minimist
 
 WORKDIR /workdir
 VOLUME /workdir
+VOLUME /host
